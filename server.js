@@ -13,34 +13,45 @@ dotenv.config();
 // connectDB();
 let isConnected = false; // connection cache
 
-const connectDB = async () => {
-  if (isConnected) {
-    console.log("✅ MongoDB already connected");
-    return;
-  }
+// const connectDB = async () => {
+//   if (isConnected) {
+//     console.log("✅ MongoDB already connected");
+//     return;
+//   }
 
+//   try {
+//     const conn = await mongoose.connect(process.env.MONGO_URL, {
+//       useNewUrlParser: true,
+//       useUnifiedTopology: true,
+//     });
+
+//     isConnected = conn.connections[0].readyState;
+//     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
+//   } catch (error) {
+//     console.error("❌ MongoDB connection error:", error);
+//     process.exit(1);
+//   }
+// };
+async function connectDB() {
   try {
-    const conn = await mongoose.connect(process.env.MONGO_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-
-    isConnected = conn.connections[0].readyState;
-    console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
-  } catch (error) {
-    console.error("❌ MongoDB connection error:", error);
-    process.exit(1);
-  }
-};
-
+  await mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true, 
+  });
+  isConnected = true;
+  console.log("✅ MongoDB connected");
+} catch (error) {
+  console.error("❌ MongoDB connection error:", error);
+}
+}
 
 // rest object
 const app = express();
 
 // middlewares
-app.use(express.json());
-app.use(cors());
-app.use(morgan("dev"));
+// app.use(express.json());
+// app.use(cors());
+// app.use(morgan("dev"));
 app.use((req, res, next) => {
   if (isConnected) {
     connectDB();
