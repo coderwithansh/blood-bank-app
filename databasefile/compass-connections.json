@@ -1,0 +1,44 @@
+{
+  "type": "Compass Connections",
+  "version": {
+    "$numberInt": "1"
+  },
+  "connections": [
+    {
+      "id": "4334757b-8b32-498c-9782-b9570e2217c2",
+      "lastUsed": {
+        "$date": {
+          "$numberLong": "1743424606115"
+        }
+      },
+      "favorite": {
+        "name": "cluster0.etav5.mongodb.net"
+      },
+      "savedConnectionType": "recent",
+      "connectionOptions": {
+        "connectionString": "mongodb+srv://anshdewangan2003:anshdewangan2003@cluster0.etav5.mongodb.net/blood-bank",
+        "oidc": {
+          "serializedState": "eyJvaWRjUGx1Z2luU3RhdGVWZXJzaW9uIjowLCJzdGF0ZSI6W119"
+        }
+      }
+    },
+    {
+      "id": "79d5d8fe-78c0-4dbc-9bcb-30b7b1b4405c",
+      "lastUsed": {
+        "$date": {
+          "$numberLong": "1737889547000"
+        }
+      },
+      "favorite": {
+        "name": ""
+      },
+      "savedConnectionType": "recent",
+      "connectionOptions": {
+        "connectionString": "mongodb://localhost:27017/",
+        "oidc": {
+          "serializedState": "eyJvaWRjUGx1Z2luU3RhdGVWZXJzaW9uIjowLCJzdGF0ZSI6W119"
+        }
+      }
+    }
+  ]
+}
