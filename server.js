@@ -49,17 +49,17 @@ async function connectDB() {
 const app = express();
 
 // middlewares
-// app.use(express.json());
-// app.use(cors());
-// app.use(morgan("dev"));
-app.use((req, res, next) => {
+app.use(express.json());
+app.use(cors());
+app.use(morgan("dev"));
+app.use(async(req, res, next) => {
   if (isConnected) {
-    connectDB();
+    await connectDB();
     console.log("✅ MongoDB already connected");
    
   }
    next();
-})
+});
 // routes
 app.use("/api/v1/test", require("./routes/testRoutes"));
 app.use("/api/v1/auth", require("./routes/authRoutes"));
