@@ -14,28 +14,28 @@
 // };
 
 // module.exports = connectDB;
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 
-let isConnected = false; // connection cache
+// let isConnected = false; // connection cache
 
-const connectDB = async () => {
-  if (isConnected) {
-    console.log("✅ MongoDB already connected");
-    return;
-  }
+// const connectDB = async () => {
+//   if (isConnected) {
+//     console.log("✅ MongoDB already connected");
+//     return;
+//   }
 
-  try {
-    const conn = await mongoose.connect(process.env.MONGO_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+//   try {
+//     const conn = await mongoose.connect(process.env.MONGO_URL, {
+//       useNewUrlParser: true,
+//       useUnifiedTopology: true,
+//     });
 
-    isConnected = conn.connections[0].readyState;
-    console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
-  } catch (error) {
-    console.error("❌ MongoDB connection error:", error);
-    process.exit(1);
-  }
-};
+//     isConnected = conn.connections[0].readyState;
+//     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
+//   } catch (error) {
+//     console.error("❌ MongoDB connection error:", error);
+//     process.exit(1);
+//   }
+// };
 
-module.exports = connectDB;
+// module.exports = connectDB;
